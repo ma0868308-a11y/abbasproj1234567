@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>AirSense — India AQI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+<div id="bg"></div>
+<div class="app">
+
+  <header>
+    <div class="logo">
+      <div class="logo-icon">AS</div>
+      <div>
+        <span class="logo-text">AirSense</span>
+        <span class="logo-sub">India AQI Monitor</span>
+      </div>
+    </div>
+    <div class="live-pill"><span class="live-dot"></span> Live Data</div>
+  </header>
+
+  <div class="search-wrap">
+    <span class="search-icon">🔍</span>
+    <input id="searchInput" type="text" placeholder="Search a city — Delhi, Ooty, Goa…" autocomplete="off"/>
+    <div id="suggestions"></div>
+  </div>
+
+  <div class="map-section">
+    <div class="map-wrap">
+      <div id="map"></div>
+      <div class="map-legend">
+        <div class="leg-item"><div class="leg-dot" style="background:#34c759"></div>Good (0–50)</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#ffd60a"></div>Moderate (51–100)</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#ff9f0a"></div>Sensitive (101–150)</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#ff453a"></div>Unhealthy (151–200)</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#bf5af2"></div>Very Unhealthy (201–300)</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#ff3b30"></div>Hazardous (300+)</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="heroCard">
+    <div class="hero-top">
+      <div>
+        <div class="hero-city" id="h-city">—</div>
+        <div class="hero-state" id="h-state">—</div>
+        <div class="hero-st" id="h-st"></div>
+      </div>
+      <div style="text-align:right">
+        <div class="aqi-big" id="h-aqi">—</div>
+        <div class="aqi-label">US AQI</div>
+      </div>
+    </div>
+    <div id="h-badge" class="visit-badge" style="display:none">
+      <span id="h-icon"></span><span id="h-msg"></span>
+    </div>
+    <div class="bar-wrap">
+      <div class="bar-lbl">Air Quality Index Scale</div>
+      <div class="bar-track"><div class="bar-thumb" id="h-thumb" style="left:0%"></div></div>
+      <div class="bar-ticks"><span>0</span><span>100</span><span>200</span><span>300</span><span>500</span></div>
+    </div>
+    <div class="stats-row" id="h-stats"></div>
+    <div class="hero-updated" id="h-updated"></div>
+  </div>
+
+  <div class="sec-title" id="gridTitle" style="display:none">
+    Air Quality — Selected Cities
+    <span class="sec-badge" id="readyCount"></span>
+  </div>
+  <div class="city-grid" id="cityGrid"></div>
+
+  <footer>
+    <div>© 2026 AirSense &nbsp;·&nbsp; Data: <a href="https://waqi.info" target="_blank">World Air Quality Index</a></div>
+    <div>US EPA AQI Standard</div>
+  </footer>
+</div>
+</body>
+</html>
